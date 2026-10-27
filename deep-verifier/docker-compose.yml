@@ -1,0 +1,57 @@
+# Production layout for a small VPS with outbound port 25 unlocked.
+#
+# deep-verifier binds to 127.0.0.1 only - the internet reaches it exclusively
+# through Caddy, which terminates TLS for verify.example.com.
+#
+#   docker compose up -d --build
+#   curl -s https://verify.example.com/health | jq
+
+services:
+  deep-verifier:
+    build:
+      context: .
+      args:
+        VERSION: ${VERSION:-dev}
+    image: lead-spam-validate-deep:latest
+    container_name: deep-verifier
+    restart: unless-stopped
+    env_file:
+      - .env
+    # Loopback only. Never publish 8080 to 0.0.0.0.
+    ports:
+      - "127.0.0.1:8080:8080"
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:8080/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: caddy
+    restart: unless-stopped
+    depends_on:
+      - deep-verifier
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
+
+volumes:
+  caddy_data:
+  caddy_config:

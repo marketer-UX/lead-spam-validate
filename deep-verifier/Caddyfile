@@ -1,0 +1,43 @@
+# Caddy 2 - automatic Let's Encrypt certificate for verify.example.com (replace with your host).
+# Port 80 must stay open: it serves the HTTP-01 challenge and the redirect.
+
+{
+	email admin@example.com
+}
+
+verify.example.com {
+	encode zstd gzip
+
+	# /health stays open so Uptime checks work without the key.
+	handle /health {
+		reverse_proxy deep-verifier:8080
+	}
+
+	handle /check {
+		reverse_proxy deep-verifier:8080 {
+			# A deep check may legitimately take ~25 s.
+			transport http {
+				response_header_timeout 30s
+				dial_timeout 5s
+			}
+		}
+	}
+
+	handle {
+		respond `{"error":"not found"}` 404 {
+			close
+		}
+	}
+
+	header {
+		-Server
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "no-referrer"
+	}
+
+	log {
+		output stdout
+		format json
+	}
+}

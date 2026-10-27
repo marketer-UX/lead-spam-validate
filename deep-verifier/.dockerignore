@@ -1,0 +1,9 @@
+.env
+.env.*
+!.env.example
+bin/
+*.md
+docker-compose.yml
+Caddyfile
+caddy_data/
+caddy_config/

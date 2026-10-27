@@ -1,0 +1,33 @@
+{
+  "name": "lead-spam-validate",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "description": "Self-hosted lead-form validation and spam defense: email (syntax, typo, MX, disposable), phone (libphonenumber), bot signals, spam rules, webhook re-validation for Webflow, Calendly and any form backend",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "dev": "tsx watch --env-file=.env src/server/index.ts",
+    "build": "npm run build:server && npm run build:embed",
+    "build:server": "tsc -p tsconfig.json",
+    "build:embed": "node scripts/build-embed.mjs",
+    "start": "node dist/server/index.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.embed.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.14.0",
+    "disposable-email-domains": "^1.0.62",
+    "hono": "^4.7.0",
+    "libphonenumber-js": "^1.12.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "esbuild": "^0.25.0",
+    "jsdom": "^26.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.8.0",
+    "vitest": "^3.1.0"
+  }
+}
