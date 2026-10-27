@@ -1,5 +1,24 @@
 # lead-spam-validate
 
+> **In plain words.** Every contact form on the internet attracts junk: bots, click farms, fake
+> enquiries with made-up names, throwaway email addresses and phone numbers that do not exist.
+> All of it ends up in your inbox and your CRM, and your team wastes time calling people who never
+> wanted to be called. This project checks every enquiry *before* it reaches you. Real people get
+> through, even if they make a typo, because they are asked to correct it. Spam is quietly
+> filtered out, so your CRM stays clean. If anything goes wrong on our side, the form keeps
+> working: we never lose a real customer.
+>
+> **Einfach erklärt.** Jedes Kontaktformular im Internet zieht Müll an: Bots, Klickfarmen,
+> Fake-Anfragen mit erfundenen Namen, Wegwerf-E-Mail-Adressen und Telefonnummern, die es nicht
+> gibt. Das alles landet im Postfach und im CRM, und das Team verliert Zeit mit Rückrufen bei
+> Leuten, die nie angefragt haben. Dieses Projekt prüft jede Anfrage, *bevor* sie bei Ihnen
+> ankommt. Echte Menschen kommen durch; wer sich vertippt, wird freundlich gebeten, es zu
+> korrigieren. Spam wird still aussortiert, damit das CRM sauber bleibt. Und falls auf unserer
+> Seite etwas ausfällt, funktioniert das Formular trotzdem weiter: Ein echter Kunde geht nie
+> verloren.
+
+## What it is
+
 Self-hosted validation and spam defense for lead forms — contact forms, quote requests, newsletter
 sign-ups, booking pages. One small HTTP service plus a dependency-free browser script that works on
 Webflow, static sites, WordPress, React/Next.js or any HTML form.
