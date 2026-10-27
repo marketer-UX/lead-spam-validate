@@ -1,5 +1,7 @@
 # lead-spam-validate
 
+![Spam bots trying to break into a lead form, held off by the spam defender: email validation, phone validation, bot signals and spam rules — fail-open by design](docs/assets/hero.jpg)
+
 > **In plain words.** Every contact form on the internet attracts junk: bots, click farms, fake
 > enquiries with made-up names, throwaway email addresses and phone numbers that do not exist.
 > All of it ends up in your inbox and your CRM, and your team wastes time calling people who never
