@@ -119,3 +119,7 @@ Add the embed to any page with a form:
 MIT — see [LICENSE](LICENSE). The optional `reacher` provider talks to
 [Reacher](https://github.com/reacherhq/check-if-email-exists), which is AGPL-licensed; check its
 license before you use it.
+
+## Maintainers
+
+Built and maintained by [marketer UX](https://github.com/marketer-ux-team).
