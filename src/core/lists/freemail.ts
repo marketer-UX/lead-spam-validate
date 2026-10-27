@@ -1,5 +1,4 @@
 // Consumer / free email providers. Flag only (`freemail`) — never a reject (German B2B: gmx/web.de/t-online are normal).
-// Seeded from Worldmonitor `convex/lib/emailDomain.ts` FREE_EMAIL_DOMAINS + German additions.
 export const FREEMAIL_DOMAINS: ReadonlySet<string> = new Set<string>([
   // global
   'gmail.com', 'googlemail.com', 'yahoo.com', 'yahoo.de', 'yahoo.fr', 'yahoo.co.uk', 'yahoo.co.jp', 'ymail.com', 'rocketmail.com',

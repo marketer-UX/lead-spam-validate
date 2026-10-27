@@ -1,6 +1,6 @@
 // Disposable / throwaway domains → hard reject (`disposable`).
 // Base: npm `disposable-email-domains` (MIT, ~120k domains + wildcard suffix list). Plus hand-curated extras
-// (seeded from Worldmonitor `server/_shared/email-validation.ts`) and an optional runtime refresh from GitHub raw
+// and an optional runtime refresh from GitHub raw
 // (same idea as AfterShip's EnableAutoUpdateDisposable). Refresh is wired in src/server (not here) to keep core pure.
 import { createRequire } from 'node:module';
 
